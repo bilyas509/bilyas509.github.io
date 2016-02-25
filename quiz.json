@@ -1,0 +1,20 @@
+{
+  "title": "Quiz title",
+  "questions": [
+    {
+      "question": "What is the first question?",
+      "answers": [
+        {
+          "is_right": true,
+          "value": "This one"
+        },
+        {
+          "is_right": false,
+          "value": "The next one"
+        },
+        ...
+      ]
+    }
+    ...
+  ]
+}
