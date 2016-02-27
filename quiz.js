@@ -288,7 +288,7 @@ var SimpleQuizApplication = React.createClass({
         if(compteur != res){compteur = res;
         temp = pointini + compteur};
 
-        DataUsers[0].point = temp.toString();
+        DataUsers.point = temp.toString();
         console.log(DataUsers.point);
         localStorage.clear();
         var dataToStore = JSON.stringify(DataUsers);
