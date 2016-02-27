@@ -51,7 +51,7 @@ var rBanner = React.createClass({
                 <p>{this.props.user}, bienvenue sur la plateforme !</p>
                 <ul className="actions">
                     <li>
-                        <a href="#one" className="button big">Cliquez pour consulter vos résultats<span id = "accueil"></span></a>
+                        <a href="#one" className="button big">Consulter vos résultats<span id = "accueil"></span></a>
                     </li>
                 </ul>
 
