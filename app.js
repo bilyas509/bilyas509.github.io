@@ -18,7 +18,7 @@ var datafb = new Firebase('https://kleegp.firebaseio.com/');
 //console.log(datafb);
 
 datafb.on("value", function(data) {
-    var DataUsers = data.val();
+    var DataUsers = data.child("users").val();
     console.log(DataUsers);
 
 
