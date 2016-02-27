@@ -4,7 +4,7 @@
 // Recuperation de la base de donnée
 
 
-var datafb = new Firebase('https://kleegp.firebaseio.com/'); 
+var datafb = new Firebase('https://kleegp.firebaseio.com/');
 
 
 // ReactJS
@@ -35,7 +35,6 @@ var rheader = React.createClass({
 datafb.on("value", function(data) {
 
     DataUsers = data.child("users").child("ID000001").val();
-    console.log(DataUsers);
     var result = React.createElement(rheader,{user : DataUsers.prenom});
     ReactDOM.render(result,document.getElementById("headerReact"));
 });
