@@ -28,7 +28,7 @@ var rheader = React.createClass({
         );
     }
 });
-var result = React.createElement(rheader,{user : DataUsers.prenom});
+
 
 
 
@@ -36,7 +36,8 @@ datafb.on("value", function(data) {
 
     DataUsers = data.child("users").child("ID000001").val();
     console.log(DataUsers);
-    React.render(result,document.getElementById("headerReact"));
+    var result = React.createElement(rheader,{user : DataUsers.prenom});
+    ReactDOM.render(result,document.getElementById("headerReact"));
 });
 
 
@@ -65,7 +66,7 @@ datafb.on("value", function(data) {
 
     DataUsers = data.child("users").child("ID000001").val();
     var result = React.createElement(rBanner, {user : DataUsers.prenom});
-    React.render(result,document.getElementById("bannerReact"));
+    ReactDOM.render(result,document.getElementById("bannerReact"));
 });
 
 var rOne = React.createClass({
@@ -109,7 +110,7 @@ datafb.on("value", function(data) {
 
     DataUsers = data.child("users").child("ID000001").val();
     var result = React.createElement(rOne,{user  : DataUsers.prenom, point : DataUsers.point, badge : DataUsers.badge, trophy : DataUsers.trophy});
-    React.render(result,document.getElementById("oneReact"));
+    ReactDOM.render(result,document.getElementById("oneReact"));
 });
 
 
@@ -201,7 +202,7 @@ datafb.on("value", function(data) {
 
     DataUsers = data.child("users").child("ID000001").val();
     var result = React.createElement(rThree);
-    React.render(result,document.getElementById("threeReact"));
+    ReactDOM.render(result,document.getElementById("threeReact"));
 });
 
 
@@ -289,7 +290,7 @@ datafb.on("value", function(data) {
 
     DataUsers = data.child("users").child("ID000001").val();
     var result = React.createElement(rFooter);
-    React.render(result,document.getElementById("footerReact"));
+    ReactDOM.render(result,document.getElementById("footerReact"));
 });
 
 
