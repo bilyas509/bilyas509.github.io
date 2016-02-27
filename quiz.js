@@ -6,15 +6,13 @@
 var datafb = new Firebase('https://kleegp.firebaseio.com/'); 
 //console.log(datafb);
 
-datafb.on("value", function(data) {
-    var DataUsers = data.child("users").child("ID000001").val();
-    console.log(DataUsers);
+
 
 
 //================================================================================================
 
 var compteur = 0;
-var pointini = parseInt(DataUsers.point);
+//var pointini = parseInt(DataUsers.point);
 
 
 var questions = [
@@ -278,21 +276,22 @@ var SimpleQuizApplication = React.createClass({
     
     score: function() {
         var res = 0;
-        var temp = parseInt(DataUsers.point)+1;
+        //var temp = parseInt(DataUsers.point)+1;
         this.state.answeredQuestions.forEach(function(correct) {
             if(correct) {
                 res++;
              };
 
-        var temp = (parseInt(DataUsers.point))
+        //var temp = (parseInt(DataUsers.point))
         if(compteur != res){compteur = res;
         temp = pointini + compteur};
 
-        DataUsers.point = temp.toString();
-        console.log(DataUsers.point);
-        localStorage.clear();
-        var dataToStore = JSON.stringify(DataUsers);
-        data.child("users").child("ID000001").update({"point": "1001"});
+        //DataUsers.point = temp.toString();
+        //localStorage.clear();
+        //var dataToStore = JSON.stringify(DataUsers);
+
+        //data.child("users").child("ID000001").update({"point": "1001"});
+
         //localStorage.setItem('data', dataToStore);
         // var dataToStore = JSON.stringify(DataUsers);
         // localStorage.setItem('data', dataToStore);
@@ -498,11 +497,11 @@ function createSimpleQuiz(id, questions, container) {
 };
 
 
+datafb.on("value", function(data) {
+var DataUsers = data.child("users").child("ID000001").val();
 
 createSimpleQuiz('myQuiz', questions, document.getElementById('react-simple-quiz'));
 
-
-// fermeture de la recuperation du JSON
 });
 
 

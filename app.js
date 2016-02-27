@@ -1,26 +1,10 @@
 //v. 1.2.0
 //================================================================================================
 
-// Recuperation du fichier json
-// $.getJSON('DataUsers.json', function(jsonfile) {
-// if (localStorage.getItem('data'))
-//     {
-//         var DataUsers = JSON.parse(localStorage.getItem('data'));
-//     }
-// else 
-//     {
-//     DataUsers= jsonfile;
-//     var dataToStore = JSON.stringify(DataUsers);
-//     localStorage.setItem('data', dataToStore);
-//     };
+// Recuperation de la base de donnée
+
 
 var datafb = new Firebase('https://kleegp.firebaseio.com/'); 
-//console.log(datafb);
-
-datafb.on("value", function(data) {
-    var DataUsers = data.child("users").child("ID000001").val();
-    console.log(DataUsers);
-
 
 
 // ReactJS
@@ -46,7 +30,16 @@ var rheader = React.createClass({
 });
 var result = React.createElement(rheader,{user : DataUsers.prenom});
 
-React.render(result,document.getElementById("headerReact"));
+
+
+datafb.on("value", function(data) {
+
+    DataUsers = data.child("users").child("ID000001").val();
+    console.log(DataUsers);
+    React.render(result,document.getElementById("headerReact"));
+});
+
+
 //button special
 
 var rBanner = React.createClass({
@@ -68,10 +61,12 @@ var rBanner = React.createClass({
 });
 
 
+datafb.on("value", function(data) {
 
-var result = React.createElement(rBanner, {user : DataUsers.prenom});
-React.render(result,document.getElementById("bannerReact"));
-
+    DataUsers = data.child("users").child("ID000001").val();
+    var result = React.createElement(rBanner, {user : DataUsers.prenom});
+    React.render(result,document.getElementById("bannerReact"));
+});
 
 var rOne = React.createClass({
     render: function() {
@@ -109,9 +104,13 @@ var rOne = React.createClass({
     }
 });
 
-var result = React.createElement(rOne,{user  : DataUsers.prenom, point : DataUsers.point, badge : DataUsers.badge, trophy : DataUsers.trophy});
-React.render(result,document.getElementById("oneReact"));
 
+datafb.on("value", function(data) {
+
+    DataUsers = data.child("users").child("ID000001").val();
+    var result = React.createElement(rOne,{user  : DataUsers.prenom, point : DataUsers.point, badge : DataUsers.badge, trophy : DataUsers.trophy});
+    React.render(result,document.getElementById("oneReact"));
+});
 
 
 
@@ -198,9 +197,12 @@ var rThree = React.createClass({
     }
 });
 
-var result = React.createElement(rThree);
-React.render(result,document.getElementById("threeReact"));
+datafb.on("value", function(data) {
 
+    DataUsers = data.child("users").child("ID000001").val();
+    var result = React.createElement(rThree);
+    React.render(result,document.getElementById("threeReact"));
+});
 
 
 var rFooter = React.createClass({
@@ -283,11 +285,12 @@ var rFooter = React.createClass({
     }
 });
 
-var result = React.createElement(rFooter);
-React.render(result,document.getElementById("footerReact"));
+datafb.on("value", function(data) {
 
-
-// fermeture de la recuperation du JSON
+    DataUsers = data.child("users").child("ID000001").val();
+    var result = React.createElement(rFooter);
+    React.render(result,document.getElementById("footerReact"));
 });
+
 
 
