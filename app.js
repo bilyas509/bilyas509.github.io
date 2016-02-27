@@ -2,17 +2,24 @@
 //================================================================================================
 
 // Recuperation du fichier json
-$.getJSON('DataUsers.json', function(jsonfile) {
-if (localStorage.getItem('data'))
-    {
-        var DataUsers = JSON.parse(localStorage.getItem('data'));
-    }
-else 
-    {
-    DataUsers= jsonfile;
-    var dataToStore = JSON.stringify(DataUsers);
-    localStorage.setItem('data', dataToStore);
-    };
+// $.getJSON('DataUsers.json', function(jsonfile) {
+// if (localStorage.getItem('data'))
+//     {
+//         var DataUsers = JSON.parse(localStorage.getItem('data'));
+//     }
+// else 
+//     {
+//     DataUsers= jsonfile;
+//     var dataToStore = JSON.stringify(DataUsers);
+//     localStorage.setItem('data', dataToStore);
+//     };
+
+var datafb = new Firebase('https://kleegp.firebaseio.com/'); 
+//console.log(datafb);
+
+datafb.on("value", function(data) {
+    var DataUsers = data.val();
+    console.log(DataUsers);
 
 
 
