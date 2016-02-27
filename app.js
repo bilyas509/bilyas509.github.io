@@ -18,7 +18,7 @@ var datafb = new Firebase('https://kleegp.firebaseio.com/');
 //console.log(datafb);
 
 datafb.on("value", function(data) {
-    var DataUsers = data.child("users").val();
+    var DataUsers = data.child("users").child("ID000001").val();
     console.log(DataUsers);
 
 
@@ -44,7 +44,7 @@ var rheader = React.createClass({
         );
     }
 });
-var result = React.createElement(rheader,{user : DataUsers[0].prenom});
+var result = React.createElement(rheader,{user : DataUsers.prenom});
 
 React.render(result,document.getElementById("headerReact"));
 //button special
@@ -69,7 +69,7 @@ var rBanner = React.createClass({
 
 
 
-var result = React.createElement(rBanner, {user : DataUsers[0].prenom});
+var result = React.createElement(rBanner, {user : DataUsers.prenom});
 React.render(result,document.getElementById("bannerReact"));
 
 
@@ -109,7 +109,7 @@ var rOne = React.createClass({
     }
 });
 
-var result = React.createElement(rOne,{user  : DataUsers[0].prenom, point : DataUsers[0].point, badge : DataUsers[0].badge, trophy : DataUsers[0].trophy});
+var result = React.createElement(rOne,{user  : DataUsers.prenom, point : DataUsers.point, badge : DataUsers.badge, trophy : DataUsers.trophy});
 React.render(result,document.getElementById("oneReact"));
 
 
