@@ -292,7 +292,7 @@ var SimpleQuizApplication = React.createClass({
         console.log(DataUsers.point);
         localStorage.clear();
         var dataToStore = JSON.stringify(DataUsers);
-        data.child("users").child("ID000001").set({"point":dataToStore});
+        data.child("users").child("ID000001").set({"point": "1001"});
         //localStorage.setItem('data', dataToStore);
         // var dataToStore = JSON.stringify(DataUsers);
         // localStorage.setItem('data', dataToStore);
