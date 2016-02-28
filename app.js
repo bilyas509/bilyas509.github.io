@@ -12,7 +12,6 @@ var datafb = new Firebase('https://kleegp.firebaseio.com/');
 var rheader = React.createClass({
     render: function() {
         return(
-            <div>
                 <nav id="nav">
                     <ul>
                         <li><a href="index.html">Accueil</a></li>
@@ -22,7 +21,7 @@ var rheader = React.createClass({
                     </ul>
                 </nav>
 
-            </div>  
+
         );
     }
 });
@@ -34,7 +33,7 @@ datafb.on("value", function(data) {
 
     DataUsers = data.child("users").child("ID000001").val();
     var result = React.createElement(rheader,{user : DataUsers.prenom});
-    ReactDOM.render(result,document.getElementById("headerReact"));
+    ReactDOM.render(result,document.getElementById("header"));
 });
 
 
