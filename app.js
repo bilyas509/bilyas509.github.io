@@ -13,8 +13,6 @@ var rheader = React.createClass({
     render: function() {
         return(
             <div>
-
-                <h1><a href="index.html">KGP</a></h1>
                 <nav id="nav">
                     <ul>
                         <li><a href="index.html">Accueil</a></li>
@@ -29,7 +27,7 @@ var rheader = React.createClass({
     }
 });
 
-
+//To be added if needed to the header : <h1><a href="index.html">KGP</a></h1>
 
 
 datafb.on("value", function(data) {

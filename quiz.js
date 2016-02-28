@@ -11,9 +11,9 @@ var datafb = new Firebase('https://kleegp.firebaseio.com/');
 
 //================================================================================================
 
-var compteur = 0;
-//var pointini = parseInt(DataUsers.point);
 
+// compteur du score
+var compteur = 0;
 
 var questions = [
     {
@@ -195,6 +195,7 @@ var SimpleQuizAnswer = React.createClass({
 });
 
 var SimpleQuizQuestion = React.createClass({
+    mixins: [ReactFireMixin],
     
     propTypes: {
         appId: React.PropTypes.string,
@@ -257,6 +258,7 @@ var SimpleQuizQuestion = React.createClass({
 });
 
 var SimpleQuizApplication = React.createClass({
+    mixins: [ReactFireMixin],
     
     propTypes: {
         id: React.PropTypes.string,
@@ -277,78 +279,29 @@ var SimpleQuizApplication = React.createClass({
     score: function() {
         var res = 0;
         var self = this;
-        // this.datafb = new Firebase('https://kleegp.firebaseio.com/');
-        // this.datafb.child("users").child("ID000001").child("point").transaction(function (current_value) {
-        // return ((parseInt(current_value) || 0) + parseInt(this.score())).toString();
-        // }.bind(this));
-        this.state.answeredQuestions.forEach(function(correct) {
-            if(correct) {
+
+            this.state.answeredQuestions.forEach(function(correct) {
+            if(correct) 
+            {
                 res++;
+                this.datafb = new Firebase('https://kleegp.firebaseio.com/');
+                this.datafb.child("users").child("ID000001").child("point").transaction(function (current_value) {
 
+                self.state.currentQuestionKey < self.props.questions.length ? b = 0 : b = 1;
+                if(compteur != res){compteur = res; temp = compteur};
+
+                var dataToSend = ((parseInt(current_value) || 0) + b).toString()
+                console.log(dataToSend);
+                return dataToSend;
+
+
+                console.log(compteur);
+                }.bind(this))
              };
-
-             });
-        //     this.setState.point({point : 2})
-        //      console.log(self.state.point);
-
-
-
-
-        // if(compteur != res){compteur = res;
-        // temp = compteur};
-        // this.datafb = new Firebase('https://kleegp.firebaseio.com/');
-        // this.datafb.child("users").child("ID000001").child("point").transaction(function (current_value) {
-        // return ((parseInt(current_value) || 0) + compteur).toString();
-        // console.log(res);
-        // }.bind(this));
-
-
-
-
-        // var dataToStore = JSON.stringify(DataUsers);
-        // localStorage.setItem('data', dataToStore);
-
-        //console.log(compteur);
-        //     var temp = (parseInt(DataUsers[0].point)+ this.score());
-        //     DataUsers[0].point = temp.toString();
-        //     console.log(DataUsers[0].point);
-                        
-            // if((self.state.currentQuestionKey < self.props.questions.length){
-            //     temp += res;
-            // DataUsers[0].point = temp.toString();
-            // console.log(1);} 
+             }.bind(this));
                 
         return res;
     },
-
-
-
-    componentWillUpdate : function(){
-
-
-        // this.datafb = new Firebase('https://kleegp.firebaseio.com/');
-        // this.datafb.child("users").child("ID000001").child("point").transaction(function (current_value) {
-        // var temp = this.score()
-        // return ((parseInt(current_value) || 0) + compteur).toString();
-        // }.bind(this));
-
-        //console.log(this.score())
-    },
-
-    // scoreD: function() {
-    //     var temp = this.score
-    //     this.setState({sco: temp});
-    //     console.log(temp);
-
-
-        // var temp = (parseInt(DataUsers[0].point)+ this.score());
-        //     DataUsers[0].point = temp.toString();
-        //     console.log(DataUsers[0].point); 
-
-        //     return console.log(DataUsers[0].point);   
-    // },
-
-
     
     getDefaultProps: function() {
         return {
