@@ -270,41 +270,41 @@ var SimpleQuizApplication = React.createClass({
             answered: false,
             answeredQuestions: [],
             errorShow: false,
-            sco : 0
+            point : 0
         };
     },
     
     score: function() {
         var res = 0;
-        //var temp = parseInt(DataUsers.point)+1;
+        var self = this;
+        // this.datafb = new Firebase('https://kleegp.firebaseio.com/');
+        // this.datafb.child("users").child("ID000001").child("point").transaction(function (current_value) {
+        // return ((parseInt(current_value) || 0) + parseInt(this.score())).toString();
+        // }.bind(this));
         this.state.answeredQuestions.forEach(function(correct) {
             if(correct) {
                 res++;
-                this.setState({sco: 2});
-                console.log(this.state.sco);
+
              };
 
-        //var temp = (parseInt(DataUsers.point))
-        if(compteur != res){compteur = res;
-        temp = compteur};
-
-        //DataUsers.point = temp.toString();
-        //localStorage.clear();
-        //var dataToStore = JSON.stringify(DataUsers);
+             });
+        //     this.setState.point({point : 2})
+        //      console.log(self.state.point);
 
 
 
-        // var temp = (parseInt(DataUsers[0].point))
+
         // if(compteur != res){compteur = res;
-        // temp = pointini + compteur};
+        // temp = compteur};
+        // this.datafb = new Firebase('https://kleegp.firebaseio.com/');
+        // this.datafb.child("users").child("ID000001").child("point").transaction(function (current_value) {
+        // return ((parseInt(current_value) || 0) + compteur).toString();
+        // console.log(res);
+        // }.bind(this));
 
-        // DataUsers[0].point = temp.toString();
-        // console.log(DataUsers[0].point);
-        // localStorage.clear();
-        // var dataToStore = JSON.stringify(DataUsers);
-        // localStorage.setItem('data', dataToStore);
 
-        //localStorage.setItem('data', dataToStore);
+
+
         // var dataToStore = JSON.stringify(DataUsers);
         // localStorage.setItem('data', dataToStore);
 
@@ -316,24 +316,23 @@ var SimpleQuizApplication = React.createClass({
             // if((self.state.currentQuestionKey < self.props.questions.length){
             //     temp += res;
             // DataUsers[0].point = temp.toString();
-            // console.log(1);}
-
- 
-        //var test="1003" ;
-        //datafb.child("users").child("ID000001").update({"point": test});
-
-        });
-
-
+            // console.log(1);} 
+                
         return res;
     },
 
-    componentDidMount : function(){
 
-        this.datafb = new Firebase('https://kleegp.firebaseio.com/');
-        this.datafb.child("users").child("ID000001").child("point").transaction(function (current_value) {
-        return ((parseInt(current_value) || 0) + this.state.sco).toString();
-        });
+
+    componentWillUpdate : function(){
+
+
+        // this.datafb = new Firebase('https://kleegp.firebaseio.com/');
+        // this.datafb.child("users").child("ID000001").child("point").transaction(function (current_value) {
+        // var temp = this.score()
+        // return ((parseInt(current_value) || 0) + compteur).toString();
+        // }.bind(this));
+
+        //console.log(this.score())
     },
 
     // scoreD: function() {
@@ -364,12 +363,7 @@ var SimpleQuizApplication = React.createClass({
             currentQuestionKey: self.state.currentQuestionKey+1,
             currentAnswerKey: -1,
             errorShow: false,
-        });
-        console.log(self.state.sco);
-        this.datafb = new Firebase('https://kleegp.firebaseio.com/');
-        this.datafb.child("users").child("ID000001").child("point").transaction(function (current_value) {
-        return ((parseInt(current_value) || 0) + self.state.sco).toString();
-        });
+        })
 
 
 
@@ -525,13 +519,8 @@ function createSimpleQuiz(id, questions, container) {
 };
 
 
-
-
-datafb.on("value", function(data) {
-var DataUsers = data.child("users").child("ID000001").val();
-
 createSimpleQuiz('myQuiz', questions, document.getElementById('react-simple-quiz'));
 
-});
+
 
 
