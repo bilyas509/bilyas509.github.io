@@ -6,14 +6,15 @@
 var datafb = new Firebase('https://kleegp.firebaseio.com/'); 
 
 
-
-
-
 //================================================================================================
 
 
 // compteur du score
 var compteur = 0;
+
+
+
+// A mettre sur le firebase
 
 var questions = [
     {
@@ -293,9 +294,6 @@ var SimpleQuizApplication = React.createClass({
                 var dataToSend = ((parseInt(current_value) || 0) + b).toString()
                 console.log(dataToSend);
                 return dataToSend;
-
-
-                console.log(compteur);
                 }.bind(this))
              };
              }.bind(this));
@@ -470,6 +468,16 @@ function createSimpleQuiz(id, questions, container) {
         container
     );
 };
+
+
+// code à mettre après avoir regler le problème du firebase
+// datafb.on("value", function(data) {
+
+//     questions = data.child("quiz").child("PIB").val();
+//     createSimpleQuiz('myQuiz', questions, document.getElementById('react-simple-quiz'));
+//     console.log(questions.length);
+
+// });
 
 
 createSimpleQuiz('myQuiz', questions, document.getElementById('react-simple-quiz'));

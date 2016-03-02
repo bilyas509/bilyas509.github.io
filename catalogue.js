@@ -10,7 +10,7 @@ var rItem = React.createClass({
                     <div className="row 150%">
                         <div className="4u 12u$(medium)">
                             <section className="box">
-                                <a href = "quiz.html"><i className="icon big rounded color1 fa-globe"></i></a>
+                                <a href = "quizPIB.html"><i className="icon big rounded color1 fa-globe"></i></a>
                                 <h3>Quiz PIB</h3>
                                 <p><span>Testez vos connaissances des PIB de différents pays</span></p>
                             </section>
@@ -24,9 +24,9 @@ var rItem = React.createClass({
                         </div>
                         <div className="4u$ 12u$(medium)">
                             <section className="box">
-                                <i className="icon big rounded color6 fa-group"></i>
-                                <h3>Valeurs de Klee</h3>
-                                <p>Vous pensez connaître les valeurs Klee ? Montrez-nous !</p>
+                                <a href = "quizKlee.html"><i className="icon big rounded color6 fa-group"></i></a>
+                                <h3>Histoire et valeurs de Klee</h3>
+                                <p>Vous pensez connaître Klee ? Montrez-nous !</p>
                             </section>
                         </div>
                     </div>

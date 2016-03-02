@@ -83,6 +83,60 @@
                     }
 
 
-            }
+            },
+    "quiz" :
+        {
+            "PIB" : 
+                [
+                    {
+                        "title": "Quel est le PIB de la France?",
+                        "answers": 
+                            [
+                                "30 Md$",
+                                "300 Md$",
+                                "3 000 Md$",
+                                "30 000 Md$"
+                            ],
+                        "correctAnswerKey": 2
+                    },
+                    
+                    {
+                        "title": "Quel est le PIB de la Chine?",
+                        "answers": 
+                            [
+                                "11 Md$",
+                                "110 Md$",
+                                "1 100 Md$",
+                                "11 000 Md$"
+                            ],
+                        "correctAnswerKey": 3
+                    },
+                    
+                    {
+                        "title": "Quel est le PIB de la Turquie?",
+                        "answers": 
+                            [
+                                "86 Md$",
+                                "860 Md$",
+                                "8 600 Md$",
+                                "86 000 Md$"
+                            ],
+                        "correctAnswerKey": 1
+                    },
+                    
+                    {
+                        "title": "Quel est le PIB du Maroc",
+                        "answers": 
+                            [
+                                "12 Md$",
+                                "120 Md$",
+                                "1 200 Md$",
+                                "12 000 Md$"
+                            ],
+                        "correctAnswerKey": 1
+                    }
+            ]
+        }
+
         
 }
