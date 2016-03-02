@@ -18,7 +18,7 @@ var compteur = 0;
 
 var questions = [
     {
-        title: 'Quelle date Klee Group a-t-elle été créee ?',
+        title: 'Quelle date Klee Group a-t-elle été créé ?',
         answers: [
             '1987',
             '1991',
