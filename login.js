@@ -14,7 +14,7 @@ ref.createUser({
     "use strict";
 
     // the main firebase reference
-    var rootRef = new Firebase('https://kleegp.firebaseio.com');
+    var rootRef = new Firebase('https://kleegp.firebaseio.com/web/uauth');
 
     // pair our routes to our form elements and controller
     var routeMap = {
