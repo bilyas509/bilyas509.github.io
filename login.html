@@ -307,6 +307,7 @@ window.onload=function(){
             e.preventDefault();
             var userInfo = $(this).serializeObject();
             userRef.set({ilyas:"ilyas"});
+            console.log(userInfo);
             userRef.set(userInfo, function onComplete() {
 
                 // show the message if write is successful
