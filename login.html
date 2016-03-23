@@ -306,9 +306,9 @@ window.onload=function(){
         form.on('submit', function (e) {
             e.preventDefault();
             var userInfo = $(this).serializeObject();
-            UserInfo.point="1000";
-            UserInfo.badge="Eclaireur"
-            UserInfo.trophy="10x Star"
+            userInfo.point="1000";
+            userInfo.badge="Eclaireur"
+            userInfo.trophy="10x Star"
 
             userRef.set(userInfo, function onComplete() {
 
