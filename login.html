@@ -306,8 +306,10 @@ window.onload=function(){
         form.on('submit', function (e) {
             e.preventDefault();
             var userInfo = $(this).serializeObject();
-            userRef.set({ilyas:"ilyas"});
-            console.log(userInfo);
+            UserInfo.point="1000";
+            UserInfo.badge="Eclaireur"
+            UserInfo.trophy="10x Star"
+
             userRef.set(userInfo, function onComplete() {
 
                 // show the message if write is successful
