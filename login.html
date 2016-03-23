@@ -153,8 +153,6 @@ window.onload=function(){
             if (!err) {
                 deferred.resolve();
 
-                var user = rootRef.getAuth();
-                rootRef.child('users').child(user.uid).set({"Poste":"Dev"});
 
 
 
@@ -313,6 +311,7 @@ window.onload=function(){
             var userInfo = $(this).serializeObject();
 
             userRef.set(userInfo, function onComplete() {
+                "Poste":"Dev"};
 
                 // show the message if write is successful
                 showAlert({
