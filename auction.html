@@ -10,6 +10,8 @@
     	<script src="js/react-dom.js"></script>
     	<script src="js/jquery.js"></script>
     	<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    	<script src="https://cdn.firebase.com/libs/reactfire/0.6.0/reactfire.min.js"></script>
+    	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
    		<script src="js/JSXTransformer.js"></script>
    		<script src="js/jquery.min.js"></script>
 		<script src="js/skel.min.js"></script>
@@ -40,6 +42,119 @@
 	    <footer id="footer"><div id ="footerReact"></div></footer>
 			<script type="text/jsx" src="app.js"></script>
 			<script type="text/jsx" src="auction.js"></script>
+			<script type="text/javascript">
+				var datafb = new Firebase('https://kleetest.firebaseio.com/'); 
+				var auction = new Firebase('https://kleegpauction.firebaseio.com/');
+				var montantfauteuil1=new Firebase('https://kleetest.firebaseio.com/users/ID000001/fauteuil1/');
+				var montantfauteuil2=new Firebase('https://kleetest.firebaseio.com/users/ID000001/fauteuil2/');	
+				var montanttablette=new Firebase('https://kleetest.firebaseio.com/users/ID000001/fauteuil2/');				
+				var point1=new Firebase('https://kleetest.firebaseio.com/users/ID000001/point/');
+				datafb.on("value", function(data) 	{
+				var point = parseInt(data.child("users").child("ID000001").child("point").val());
+				console.log(point + 1);
+
+				var fauteil1=document.getElementById("fauteuil1");
+				//var fauteil2=document.getElementById("fauteuil2");
+				//var tablette=document.getElementById("tablette");
+				console.log(fauteil1);
+
+				$('#fauteuil1').keypress(function(e){
+					if(e.keyCode == 13){
+						//alert("You have put in sth");
+						//var montant = $('#fauteuil1').val();
+						var newmontant1 = parseInt($('#fauteuil1').val());	
+						console.log(newmontant1);
+						var montant= parseInt(data.child("users").child("ID000001").child("fauteuil1").val());
+						//alert(montant);
+
+
+						//datafb = new Firebase('https://kleetest.firebaseio.com/');
+                		//alert(data.child("users").child("ID000001").child("point").val());
+                		if((point+montant)<newmontant1){
+						//var point=parseInt(datafb.child('users').child(userID).child('point').val());
+							alert("Vous n'avez pas assez de point, veuillez mettre un montant plus petit!");
+						}
+						else{
+							point=point+montant-newmontant1;
+							console.log(point);
+							//datafb.child('users/ID000001/point')=(datafb.child('users/ID000001/point')-newmontant);
+							//auction.child('	fauteuil1').push({montant : newmontant, userID='ID000001'});
+							//listfauteuil1.push({newmontant : newmontant, userID:'ID000001'});
+							montantfauteuil1.transaction(function(current_value){
+								return newmontant1;
+							})
+							point1.transaction(function(current_value){
+								return (current_value||0)+montant-newmontant1;
+							})
+							alert("Merci de votre participation! Votre enchère est bien pris en compte");
+						}
+					}
+					});
+
+				/*$('#fauteuil2').keypress(function(e){
+					if(e.keyCode == 13){
+						var newmontant2 = parseInt($('#fauteuil2').val());	
+						console.log(newmontant2);
+						var montant= parseInt(data.child("users").child("ID000001").child("fauteuil2").val());
+						//alert(montant);
+
+
+						//datafb = new Firebase('https://kleetest.firebaseio.com/');
+                		//alert(data.child("users").child("ID000001").child("point").val());
+                		if((point+montant)<newmontant2){
+						//var point=parseInt(datafb.child('users').child(userID).child('point').val());
+							alert("Vous n'avez pas assez de point, veuillez mettre un montant plus petit!");
+						}
+						else{
+							point=point+montant-newmontant2;
+							console.log(point);
+							montantfauteuil2.transaction(function(current_value){
+								return newmontant2;
+							})
+							point1.transaction(function(current_value){
+								return (current_value||0)+montant-newmontant2;
+							})
+							alert("Merci de votre participation! Votre enchère est bien pris en compte");
+						}
+					}
+					});
+
+
+
+				$('#tablette').keypress(function(e){
+					if(e.keyCode == 13){
+						var newmontant3 = parseInt($('#tablette').val());	
+						console.log(newmontant3);
+						var montant= parseInt(data.child("users").child("ID000001").child("tablette").val());
+						//alert(montant);
+
+
+						//datafb = new Firebase('https://kleetest.firebaseio.com/');
+                		//alert(data.child("users").child("ID000001").child("point").val());
+                		if((point+montant)<newmontant3){
+						//var point=parseInt(datafb.child('users').child(userID).child('point').val());
+							alert("Vous n'avez pas assez de point, veuillez mettre un montant plus petit!");
+						}
+						else{
+							point=point+montant-newmontant3;
+							console.log(point);
+							montanttablette.transaction(function(current_value){
+								return newmontant3;
+							})
+							point1.transaction(function(current_value){
+								return (current_value||0)+montant-newmontant3;
+							})
+							alert("Merci de votre participation! Votre enchère est bien pris en compte");
+						}
+					}
+					});*/
+
+
+
+
+				});
+				
+			</script>
 	</body>
 
 </html>

@@ -22,46 +22,35 @@ var rAuction = React.createClass({
         return(
 
 
-        		<div>
-
-
-        		<form method="post" action="" onsubmit="return validate_form(this)">
+        	 < div>
+        		<form method="" action="">
                 <div className="container">
                     <header className="major">
-                        <h2>Faites vos enchères !</h2>
-                        <p>Et que le meilleur gagne ...</p>
+                        <h2>Voici les gagnants du mois !</h2>
+                        <p>Félicitations !</p>
                     </header>
                     <div className="row 170%">
                         <div className="4u 12u$(small)" >
                             <section className="box">
-                                <img src="images/fauteuil.jpg" alt="Fauteuil" className="image"></img>
+                                <a href="fauteuil1.html"><img src="images/fauteuil.jpg" alt="Fauteuil" className="image"></img></a>
                                 <h3>Chaise Platinium</h3>
-                                <p><input type="text" name="fauteuil1"id="fauteuil1" placeholder="       Indiquez ici votre prix, ex : 1 000 KP" /></p>
                             </section>
                         </div>
                         <div className="4u 12u$(medium)">
                             <section className="box">
-                                <img src="images/fauteuil2.jpg" alt="Fauteuil" width="250px" height="200px" className="image"></img>
+                                <a href="fauteuil2.html"><img src="images/fauteuil2.jpg" alt="Fauteuil" width="250px" height="200px" className="image"></img></a>
                                 <h3>Chaise Gold</h3>
-                                <p><input type="text" name="fauteuil2" id="fauteuil2"  placeholder="       Indiquez ici votre prix, ex : 1 000 KP" /></p>
                             </section>
                         </div>
                         <div className="4u$ 12u$(big)">
                             <section className="box">
-                                <img src="images/tablette.jpg" alt="tablette"  width="250px" height="200px" className="image"></img>
+                                <a href="tablette.html"><img src="images/tablette.jpg" alt="tablette"  width="250px" height="200px" className="image"></img></a>
                                 <h3>Tablette Android</h3>
-                                <p><input type="text" name="tablette" id="tablette" placeholder="       Indiquez ici votre prix, ex : 1 000 KP" /></p>
                             </section>
                         </div>
 
                     </div>
                 </div>
-                <div class="20u$">
-					<ul class="actions">
-						<input type="submit" name ="val" value="Valider" class="special" />
-
-					</ul>
-				</div>
                 </form>
                 </div>
         );

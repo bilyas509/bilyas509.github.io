@@ -1,0 +1,30 @@
+{
+	"auction":
+		{
+			"fauteil1":
+			{
+				"auc1":
+				{
+					"userID":"ID000001",
+					"montant": 1000
+				}
+
+			},
+			"fauteil2":
+			{
+				"auc1":
+				{
+					"userID": "ID000002",
+					"montant": 2000
+				}
+			},
+			"tablette":
+			{
+				"auc1":
+				{
+					"userID":"ID000001",
+					"montant": 500
+				}
+			}
+		}
+}

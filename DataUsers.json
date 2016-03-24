@@ -12,7 +12,9 @@
                         "Poste":"Dev",
                         "badge" : "BuzzEclair",
                         "trophy" : "10x Star",
-                        "point" : "1000",
+                        "fauteuil1" : 0,
+                        "fauteuil2" : 0,
+                        "tablette" : 0,
                         "periode":"1",
                         "periode1":
 
@@ -46,13 +48,97 @@
                     {
 
                         "point":"1000",
-                        "prenom":"Ilyas",
-                        "nom":"BABA",
+                        "prenom":"Lu",
+                        "nom":"LI",
                         "mail":"ilyas.baba@icloud.com",
                         "Poste":"Dev",
                         "badge" : "BuzzEclair",
                         "trophy" : "10x Star",
-                        "point" : "1001",                        
+                        "fauteuil1" : 200,
+                        "fauteuil2" : 200,
+                        "tablette" : 200,                   
+                        "periode":"1",
+                        "periode1":
+
+                            {
+                                "point":"1000",
+                                "badge":[
+                                            {
+                                                "type":"BuzzEclair",
+                                                "nombre":"2"
+                                        },
+                                        {
+                                                "type":"Star",
+                                                "nombre":"3"
+                                            }
+                                        ],
+                                "trophee":[
+                                        {
+                                                "type":"10XBuzzEclair",
+                                                "nombre":"1"
+                                            },
+                                        {
+                                            "type":"10XStar",
+                                            "nombre":"2"
+                                            }
+                                        ]
+                            }
+
+                    },
+                "ID000003":
+                    {
+
+                        "point":"1000",
+                        "prenom":"Oussama",
+                        "nom":"TAGHI",
+                        "mail":"ilyas.baba@icloud.com",
+                        "Poste":"Dev",
+                        "badge" : "BuzzEclair",
+                        "trophy" : "10x Star",
+                        "fauteuil1" : 300,
+                        "fauteuil2" : 300,
+                        "tablette" : 300,
+                        "periode":"1",
+                        "periode1":
+
+                            {
+                                "point":"1000",
+                                "badge":[
+                                            {
+                                                "type":"BuzzEclair",
+                                                "nombre":"2"
+                                        },
+                                        {
+                                                "type":"Star",
+                                                "nombre":"3"
+                                            }
+                                        ],
+                                "trophee":[
+                                        {
+                                                "type":"10XBuzzEclair",
+                                                "nombre":"1"
+                                            },
+                                        {
+                                            "type":"10XStar",
+                                            "nombre":"2"
+                                            }
+                                        ]
+                            }
+
+                    },
+                    "ID000004":
+                    {
+
+                        "point":"1000",
+                        "prenom":"Pierre",
+                        "nom":"BESSON",
+                        "mail":"ilyas.baba@icloud.com",
+                        "Poste":"Dev",
+                        "badge" : "BuzzEclair",
+                        "trophy" : "10x Star",
+                        "fauteuil1" : 300,
+                        "fauteuil2" : 300,
+                        "tablette" : 300,
                         "periode":"1",
                         "periode1":
 
