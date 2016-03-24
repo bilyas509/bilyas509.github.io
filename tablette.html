@@ -1,0 +1,112 @@
+<!--v. 1.2.0-->
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Klee Gamification Plateform</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    	<script src="js/react.js"></script>
+    	<script src="js/react-dom.js"></script>
+    	<script src="js/jquery.js"></script>
+    	<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    	<script src="https://cdn.firebase.com/libs/reactfire/0.6.0/reactfire.min.js"></script>
+    	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+   		<script src="js/JSXTransformer.js"></script>
+   		<script src="js/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+
+ 
+    	<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-xlarge.css" />
+		</noscript>
+
+
+
+
+
+	</head>
+	<body>
+		<header id="header"></header>
+		<section id="one" class="wrapper style1 special"><div id ="auction"></div></section>
+		<!--<section id="three" class="wrapper style3 special"><div id ="threeReact"></div></section>-->
+	    <!-- Footer -->
+			<script type="text/jsx" src="app.js"></script>
+			<script type="text/jsx" src="resultat.js"></script>
+
+		<div class="example-base example-leaderboard l-demo-container">
+  			<table id="leaderboardTable3">
+  			<tr align="center"><b>Tablette</b></tr>
+    		<tr>
+      		<th>Users</th>
+      		<th>Bid</th>
+    		</tr>
+  			</table>
+		</div>
+		<script type="text/javascript">
+			var LEADERBOARD_SIZE = 4;
+
+			  // Create our Firebase reference
+			  var scoreListRef2 = new Firebase('https://kleetest.firebaseio.com/users');
+			  //var scoreListRef = new Firebase('https://z3r61p8dfe0.firebaseio-demo.com/scoreList');
+
+			  // Keep a mapping of firebase locations to HTML elements, so we can move / remove elements as necessary.
+			  var htmlForPath = {};
+
+			  // Helper function that takes a new score snapshot and adds an appropriate row to our leaderboard table.
+			  function handleScoreAdded3(scoreSnapshot, prevScoreName) {
+			    var newScoreRow = $("<tr/>");
+			    newScoreRow.append($("<td/>").append($("<em/>").text(scoreSnapshot.val().prenom)));
+			    newScoreRow.append($("<td/>").text(scoreSnapshot.val().tablette));
+
+			    // Store a reference to the table row so we can get it again later.
+			    htmlForPath[scoreSnapshot.key()] = newScoreRow;
+
+			    // Insert the new score in the appropriate place in the table.
+			    if (prevScoreName === null) {
+			      $("#leaderboardTable3").append(newScoreRow);
+			    }
+			    else {
+			      var lowerScoreRow = htmlForPath[prevScoreName];
+			      lowerScoreRow.before(newScoreRow);
+			    }
+			  }
+
+			  // Helper function to handle a score object being removed; just removes the corresponding table row.
+			  function handleScoreRemoved(scoreSnapshot) {
+			    var removedScoreRow = htmlForPath[scoreSnapshot.key()];
+			    removedScoreRow.remove();
+			    delete htmlForPath[scoreSnapshot.key()];
+			  }
+ 	
+			  // Create a view to only receive callbacks for the last LEADERBOARD_SIZE scores
+			  var scoreListView = scoreListRef2.limitToLast(LEADERBOARD_SIZE);
+
+			  // Add a callback to handle when a new score is added.
+			  //ref.orderByChild("fauteuil1").on("child_added",	 function(snapshot)
+			  scoreListView.orderByChild("tablette").on('child_added', function (newScoreSnapshot, prevScoreName) {
+			    handleScoreAdded3(newScoreSnapshot, prevScoreName);
+			  });
+
+			  // Add a callback to handle when a score is removed
+			  scoreListView2.on('child_removed', function (oldScoreSnapshot) {
+			    handleScoreRemoved(oldScoreSnapshot);
+			  });
+
+			  // Add a callback to handle when a score changes or moves positions.
+			  var changedCallback = function (scoreSnapshot, prevScoreName) {
+			    handleScoreRemoved(scoreSnapshot);
+			    handleScoreAdded2(scoreSnapshot, prevScoreName);
+			  };
+			  scoreListView.on('child_moved', changedCallback);
+			  scoreListView.on('child_changed', changedCallback);
+		</script>
+		<footer id="footer"><div id ="footerReact"></div></footer>
+	</body>
+
+</html>

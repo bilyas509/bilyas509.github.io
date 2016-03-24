@@ -17,6 +17,7 @@ var rheader = React.createClass({
                         <li><a href="index.html">Accueil</a></li>
                         <li><a href="catalogue.html">Klee Store</a></li>
                         <li><a href="auction.html">Enchères</a></li>
+                        <li><a href="resultat.html">Résultat</a></li>
                         <li><a id="SignUp" href="#" className="button special">{this.props.user}</a></li>        
                     </ul>
                 </nav>
